@@ -1,5 +1,6 @@
 package org.example.taskify.dto.response;
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.AccessLevel;
@@ -10,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 @Data
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class PageResponse<T> {
+public class PageResponse<T> implements Serializable {
     boolean hasNext;
     List<T> results;
 

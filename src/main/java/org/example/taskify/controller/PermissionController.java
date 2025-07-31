@@ -2,6 +2,8 @@ package org.example.taskify.controller;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.example.taskify.dto.request.PermissionRequest;
 import org.example.taskify.dto.response.ApiResponse;
 import org.example.taskify.dto.response.PermissionResponse;
@@ -13,8 +15,10 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+@Tag(name = "Permission API")
+@SecurityRequirement(name = "bearerAuth")
 @RestController
-@RequestMapping("/permissions")
+@RequestMapping("/api/permissions")
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class PermissionController {
