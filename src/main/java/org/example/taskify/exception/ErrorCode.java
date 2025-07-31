@@ -27,6 +27,8 @@ public enum ErrorCode {
     TAG_ALREADY_EXISTS(2005, HttpStatus.BAD_REQUEST, "Tag already exists"),
     TAG_NOT_FOUND(2006, HttpStatus.NOT_FOUND, "Tag not found"),
 
+    TODO_NOT_FOUND(2007, HttpStatus.NOT_FOUND, "Todo not found"),
+
     UNCATEGORIZED_ERROR(5000, HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred"),
     ;
 

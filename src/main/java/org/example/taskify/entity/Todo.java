@@ -1,6 +1,8 @@
 package org.example.taskify.entity;
 
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.*;
 
@@ -13,18 +15,19 @@ import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 @Entity
-@Table(name = "tags")
+@Table(name = "todos")
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Tag {
+public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     String id;
 
-    @Column(nullable = false, unique = true)
-    String name;
+    @Column(nullable = false)
+    String title;
 
+    @Column(length = 500)
     String description;
 
     @Column(updatable = false)
@@ -37,4 +40,11 @@ public class Tag {
     @ManyToOne
     @JoinColumn(name = "created_by")
     User createdBy;
+
+    @ManyToMany
+    @JoinTable(
+            name = "todo_tags",
+            joinColumns = @JoinColumn(name = "todo_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    Set<Tag> tags = new HashSet<>();
 }
