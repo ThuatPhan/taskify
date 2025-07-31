@@ -1,6 +1,6 @@
 package org.example.taskify.exception;
 
-import org.example.taskify.dto.ApiResponse;
+import org.example.taskify.dto.response.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;

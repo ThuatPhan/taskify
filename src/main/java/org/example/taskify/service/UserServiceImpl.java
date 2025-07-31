@@ -1,8 +1,9 @@
 package org.example.taskify.service;
 
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.example.taskify.constant.PredefinedRole;
 import org.example.taskify.dto.request.CreatePasswordRequest;
 import org.example.taskify.dto.request.CreateUserRequest;
@@ -16,14 +17,15 @@ import org.example.taskify.mapper.UserMapper;
 import org.example.taskify.repository.RoleRepository;
 import org.example.taskify.repository.UserRepository;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
 @Service
 @RequiredArgsConstructor
@@ -91,5 +93,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserResponse> getUsers() {
         return userMapper.toResponseList(userRepository.findAll());
+    }
+
+    @Override
+    public User getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+
+        return userRepository.findByUsername(username).orElseThrow(() -> new AppException(ErrorCode.UNAUTHENTICATED));
     }
 }

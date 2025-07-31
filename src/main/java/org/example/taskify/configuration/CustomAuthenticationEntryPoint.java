@@ -1,16 +1,18 @@
 package org.example.taskify.configuration;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.example.taskify.dto.ApiResponse;
+
+import org.example.taskify.dto.response.ApiResponse;
 import org.example.taskify.exception.ErrorCode;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
-import java.io.IOException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override

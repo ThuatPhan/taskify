@@ -1,12 +1,12 @@
 package org.example.taskify.mapper;
 
+import java.util.List;
+
 import org.example.taskify.dto.request.CreateUserRequest;
 import org.example.taskify.dto.request.UpdateUserRequest;
 import org.example.taskify.dto.response.UserResponse;
 import org.example.taskify.entity.User;
 import org.mapstruct.*;
-
-import java.util.List;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface UserMapper {

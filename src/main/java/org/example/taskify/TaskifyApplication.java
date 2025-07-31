@@ -11,5 +11,4 @@ public class TaskifyApplication {
     public static void main(String[] args) {
         SpringApplication.run(TaskifyApplication.class, args);
     }
-
 }

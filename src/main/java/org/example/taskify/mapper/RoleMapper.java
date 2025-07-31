@@ -1,13 +1,13 @@
 package org.example.taskify.mapper;
 
+import java.util.List;
+
 import org.example.taskify.dto.request.RoleRequest;
 import org.example.taskify.dto.response.RoleResponse;
 import org.example.taskify.entity.Role;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
-
-import java.util.List;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface RoleMapper {

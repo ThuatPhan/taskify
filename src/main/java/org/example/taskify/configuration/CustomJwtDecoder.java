@@ -1,9 +1,9 @@
 package org.example.taskify.configuration;
 
-import com.nimbusds.jose.JOSEException;
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
+import java.text.ParseException;
+import java.util.Objects;
+import javax.crypto.spec.SecretKeySpec;
+
 import org.example.taskify.dto.request.IntrospectRequest;
 import org.example.taskify.dto.response.IntrospectResponse;
 import org.example.taskify.service.AuthenticationService;
@@ -15,9 +15,11 @@ import org.springframework.security.oauth2.jwt.JwtException;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.stereotype.Component;
 
-import javax.crypto.spec.SecretKeySpec;
-import java.text.ParseException;
-import java.util.Objects;
+import com.nimbusds.jose.JOSEException;
+
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
 @Component
 @RequiredArgsConstructor

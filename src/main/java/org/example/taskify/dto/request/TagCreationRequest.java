@@ -8,10 +8,9 @@ import lombok.experimental.FieldDefaults;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class AuthenticationRequest {
-    @NotBlank(message = "Username is required")
-    String username;
+public class TagCreationRequest {
+    @NotBlank(message = "Name is required")
+    String name;
 
-    @NotBlank(message = "Password is required")
-    String password;
+    String description;
 }

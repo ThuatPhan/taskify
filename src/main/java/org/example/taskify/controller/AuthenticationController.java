@@ -1,21 +1,24 @@
 package org.example.taskify.controller;
 
-import com.nimbusds.jose.JOSEException;
+import java.text.ParseException;
+
 import jakarta.validation.Valid;
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
-import org.example.taskify.dto.ApiResponse;
+
 import org.example.taskify.dto.request.AuthenticationRequest;
 import org.example.taskify.dto.request.IntrospectRequest;
 import org.example.taskify.dto.request.LogoutRequest;
 import org.example.taskify.dto.request.RefreshTokenRequest;
+import org.example.taskify.dto.response.ApiResponse;
 import org.example.taskify.dto.response.AuthenticationResponse;
 import org.example.taskify.dto.response.IntrospectResponse;
 import org.example.taskify.service.AuthenticationService;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
+import com.nimbusds.jose.JOSEException;
+
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
 @RestController
 @RequestMapping("/auth")

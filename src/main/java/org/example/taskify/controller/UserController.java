@@ -1,19 +1,21 @@
 package org.example.taskify.controller;
 
+import java.util.List;
+
 import jakarta.validation.Valid;
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
-import lombok.extern.slf4j.Slf4j;
-import org.example.taskify.dto.ApiResponse;
+
 import org.example.taskify.dto.request.CreatePasswordRequest;
 import org.example.taskify.dto.request.CreateUserRequest;
+import org.example.taskify.dto.response.ApiResponse;
 import org.example.taskify.dto.response.UserResponse;
 import org.example.taskify.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController

@@ -1,11 +1,11 @@
 package org.example.taskify.dto.response;
 
+import java.time.Instant;
+import java.util.Set;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
-
-import java.time.Instant;
-import java.util.Set;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -17,6 +17,6 @@ public class UserResponse {
     String avatar;
     Instant createdAt;
     Instant updatedAt;
-    boolean hasPassword;
+    boolean hasPassword = false;
     Set<RoleResponse> roles;
 }
