@@ -1,10 +1,8 @@
 package org.example.taskify.configuration;
 
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
-import lombok.experimental.NonFinal;
-import lombok.extern.slf4j.Slf4j;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.example.taskify.constant.PredefinedRole;
 import org.example.taskify.entity.Role;
 import org.example.taskify.entity.User;
@@ -17,8 +15,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.HashSet;
-import java.util.Set;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import lombok.experimental.NonFinal;
+import lombok.extern.slf4j.Slf4j;
 
 @Configuration
 @Slf4j

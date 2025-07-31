@@ -1,16 +1,17 @@
 package org.example.taskify.controller;
 
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
-import org.example.taskify.dto.ApiResponse;
+import java.util.List;
+
 import org.example.taskify.dto.request.PermissionRequest;
+import org.example.taskify.dto.response.ApiResponse;
 import org.example.taskify.dto.response.PermissionResponse;
 import org.example.taskify.service.PermissionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
 @RestController
 @RequestMapping("/permissions")

@@ -1,16 +1,17 @@
 package org.example.taskify.entity;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-
-import java.util.Date;
 
 @Entity
 @Table(name = "invalidated_tokens")

@@ -1,14 +1,12 @@
 package org.example.taskify.service;
 
-import com.nimbusds.jose.*;
-import com.nimbusds.jose.crypto.MACSigner;
-import com.nimbusds.jose.crypto.MACVerifier;
-import com.nimbusds.jwt.JWTClaimsSet;
-import com.nimbusds.jwt.SignedJWT;
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
-import lombok.experimental.NonFinal;
+import java.text.ParseException;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+import java.util.StringJoiner;
+import java.util.UUID;
+
 import org.example.taskify.entity.InvalidatedToken;
 import org.example.taskify.entity.Role;
 import org.example.taskify.entity.User;
@@ -19,12 +17,16 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.text.ParseException;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
-import java.util.StringJoiner;
-import java.util.UUID;
+import com.nimbusds.jose.*;
+import com.nimbusds.jose.crypto.MACSigner;
+import com.nimbusds.jose.crypto.MACVerifier;
+import com.nimbusds.jwt.JWTClaimsSet;
+import com.nimbusds.jwt.SignedJWT;
+
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import lombok.experimental.NonFinal;
 
 @Service
 @RequiredArgsConstructor

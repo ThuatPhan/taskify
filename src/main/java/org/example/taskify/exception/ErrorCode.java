@@ -1,10 +1,11 @@
 package org.example.taskify.exception;
 
+import org.springframework.http.HttpStatus;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
-import org.springframework.http.HttpStatus;
 
 @Getter
 @AllArgsConstructor
@@ -22,6 +23,9 @@ public enum ErrorCode {
     PERMISSION_ALREADY_EXISTS(2002, HttpStatus.BAD_REQUEST, "Permission already exists"),
     ROLE_ALREADY_EXISTS(2003, HttpStatus.BAD_REQUEST, "Role already exists"),
     PASSWORD_ALREADY_EXISTS(2004, HttpStatus.BAD_REQUEST, "Password already exists"),
+
+    TAG_ALREADY_EXISTS(2005, HttpStatus.BAD_REQUEST, "Tag already exists"),
+    TAG_NOT_FOUND(2006, HttpStatus.NOT_FOUND, "Tag not found"),
 
     UNCATEGORIZED_ERROR(5000, HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred"),
     ;

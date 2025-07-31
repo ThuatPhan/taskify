@@ -1,12 +1,10 @@
 package org.example.taskify.service;
 
-import com.nimbusds.jose.JOSEException;
-import com.nimbusds.jwt.SignedJWT;
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
-import lombok.experimental.NonFinal;
-import lombok.extern.slf4j.Slf4j;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.example.taskify.constant.PredefinedRole;
 import org.example.taskify.dto.request.*;
 import org.example.taskify.dto.response.AuthenticationResponse;
@@ -27,10 +25,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import com.nimbusds.jose.JOSEException;
+import com.nimbusds.jwt.SignedJWT;
+
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import lombok.experimental.NonFinal;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service

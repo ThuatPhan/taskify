@@ -1,11 +1,12 @@
 package org.example.taskify.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
-import lombok.experimental.FieldDefaults;
-
 import java.util.HashSet;
 import java.util.Set;
+
+import jakarta.persistence.*;
+
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Entity
 @Table(name = "roles")

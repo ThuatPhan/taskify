@@ -1,8 +1,5 @@
 package org.example.taskify.configuration;
 
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -15,6 +12,10 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+
 @Configuration
 @EnableMethodSecurity
 @RequiredArgsConstructor
@@ -24,15 +25,20 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/users/**", "/auth/**", "/actuator/**")
-                .permitAll()
-                .anyRequest()
-                .authenticated());
+        // spotless:off
+        httpSecurity.authorizeHttpRequests(request ->
+                request.requestMatchers("/users/**", "/auth/**", "/actuator/**")
+                        .permitAll()
+                        .anyRequest()
+                        .authenticated());
 
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
 
-        httpSecurity.oauth2ResourceServer(oauth2 -> oauth2.jwt(jwtConfigurer -> jwtConfigurer.decoder(jwtDecoder))
+        httpSecurity.oauth2ResourceServer(oauth2 ->
+                oauth2.jwt(jwtConfigurer ->
+                        jwtConfigurer.decoder(jwtDecoder))
                 .authenticationEntryPoint(new CustomAuthenticationEntryPoint()));
+        //  spotless:on
 
         return httpSecurity.build();
     }

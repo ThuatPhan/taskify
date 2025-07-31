@@ -1,6 +1,7 @@
 package org.example.taskify.service;
 
-import com.nimbusds.jose.JOSEException;
+import java.text.ParseException;
+
 import org.example.taskify.dto.request.AuthenticationRequest;
 import org.example.taskify.dto.request.IntrospectRequest;
 import org.example.taskify.dto.request.LogoutRequest;
@@ -8,7 +9,7 @@ import org.example.taskify.dto.request.RefreshTokenRequest;
 import org.example.taskify.dto.response.AuthenticationResponse;
 import org.example.taskify.dto.response.IntrospectResponse;
 
-import java.text.ParseException;
+import com.nimbusds.jose.JOSEException;
 
 public interface AuthenticationService {
     IntrospectResponse introspect(IntrospectRequest request) throws ParseException, JOSEException;
