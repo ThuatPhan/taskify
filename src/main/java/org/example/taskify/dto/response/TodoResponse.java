@@ -1,5 +1,6 @@
 package org.example.taskify.dto.response;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.Set;
 
@@ -9,7 +10,7 @@ import lombok.experimental.FieldDefaults;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class TodoResponse {
+public class TodoResponse implements Serializable {
     String id;
     String title;
     String description;

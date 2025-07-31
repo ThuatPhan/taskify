@@ -27,7 +27,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         // spotless:off
         httpSecurity.authorizeHttpRequests(request ->
-                request.requestMatchers("/users/**", "/auth/**", "/actuator/**")
+                request.requestMatchers("/api/users/**", "/api/auth/**", "/api/tags/**", "/api/todos/**", "/actuator/**", "/swagger-ui/**", "/v3/api-docs/**")
                         .permitAll()
                         .anyRequest()
                         .authenticated());
@@ -36,8 +36,8 @@ public class SecurityConfig {
 
         httpSecurity.oauth2ResourceServer(oauth2 ->
                 oauth2.jwt(jwtConfigurer ->
-                        jwtConfigurer.decoder(jwtDecoder))
-                .authenticationEntryPoint(new CustomAuthenticationEntryPoint()));
+                                jwtConfigurer.decoder(jwtDecoder))
+                        .authenticationEntryPoint(new CustomAuthenticationEntryPoint()));
         //  spotless:on
 
         return httpSecurity.build();

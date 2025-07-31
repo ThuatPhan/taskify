@@ -2,6 +2,8 @@ package org.example.taskify.controller;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 import org.example.taskify.dto.request.CreatePasswordRequest;
@@ -15,11 +17,10 @@ import org.springframework.web.bind.annotation.*;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+@Tag(name = "User API")
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserController {
@@ -31,18 +32,21 @@ public class UserController {
         return ApiResponse.success(201, userService.createUser(request));
     }
 
+    @SecurityRequirement(name = "bearerAuth")
     @GetMapping
     public ApiResponse<List<UserResponse>> getUsers() {
         return ApiResponse.success(200, userService.getUsers());
     }
 
+    @SecurityRequirement(name = "bearerAuth")
     @GetMapping("/info")
     public ApiResponse<UserResponse> getMyInfo() {
         return ApiResponse.success(200, userService.getMyInfo());
     }
 
-    @ResponseStatus(HttpStatus.OK)
+    @SecurityRequirement(name = "bearerAuth")
     @PostMapping("/create-password")
+    @ResponseStatus(HttpStatus.OK)
     public void createPassword(@RequestBody @Valid CreatePasswordRequest request) {
         userService.createPassword(request);
     }
